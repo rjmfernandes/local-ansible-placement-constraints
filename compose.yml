@@ -55,12 +55,32 @@ services:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     privileged: true
     cgroup: host
-  sr:
+  kafka4:
     image: my-geerlingguy-docker-ubuntu-ansible:latest
-    hostname: sr
-    container_name: sr
+    hostname: kafka4
+    container_name: kafka4
     ports:
-     - "8081:8081"
+     - "9095:9092"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    privileged: true
+    cgroup: host
+  kafka5:
+    image: my-geerlingguy-docker-ubuntu-ansible:latest
+    hostname: kafka5
+    container_name: kafka5
+    ports:
+     - "9096:9092"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    privileged: true
+    cgroup: host
+  kafka6:
+    image: my-geerlingguy-docker-ubuntu-ansible:latest
+    hostname: kafka6
+    container_name: kafka6
+    ports:
+     - "9097:9092"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     privileged: true
